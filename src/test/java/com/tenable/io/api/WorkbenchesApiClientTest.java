@@ -62,7 +62,7 @@ public class WorkbenchesApiClientTest extends TestBase {
 
     }
 
-    @Ignore
+    //@Ignore
     @Test
     public void testAssets() throws Exception {
         TenableIoClient apiClient = new TenableIoClient();
@@ -73,11 +73,19 @@ public class WorkbenchesApiClientTest extends TestBase {
         Scan imported = apiClient.getScansApi().importFile( filename, "test", "1");
         assertNotNull( imported );
         List<WbVulnerabilityAsset> assets = apiClient.getWorkbenchesApi().assets(new FilteringOptions());
-        
+     
+        Integer cnt = 500;    
+
         // wait for assets in scan results to be processed
         while (assets.size() == 0) {
             Thread.sleep(10000);
             assets = apiClient.getWorkbenchesApi().assets(new FilteringOptions());
+            cnt++;
+            
+	    if (cnt == 0) {
+                assertNotNull(assets.get(0));
+                break;
+            }
         }
 
         if(assets != null && assets.size() > 0) {
