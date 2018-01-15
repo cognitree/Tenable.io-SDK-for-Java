@@ -85,7 +85,8 @@ cat ./tenableio-sdk/tio_config.txt | sed 's/^/systemProp./g' > gradle.properties
 cat gradle.properties
 
 chmod +x gradlew
-./gradlew build --debug
+./gradlew stop 
+./gradlew build --no-daemon  --debug
 '''
                         }
                     }
