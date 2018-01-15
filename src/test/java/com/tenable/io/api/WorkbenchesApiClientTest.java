@@ -11,6 +11,7 @@ import com.tenable.io.api.scans.models.ScanVulnerability;
 import com.tenable.io.api.workbenches.WorkbenchNessusFileParser;
 import com.tenable.io.api.workbenches.models.*;
 import org.junit.Test;
+import org.junit.Ignore;
 
 import java.io.File;
 import java.util.*;
