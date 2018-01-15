@@ -61,6 +61,7 @@ public class WorkbenchesApiClientTest extends TestBase {
 
     }
 
+    @Ignore
     @Test
     public void testAssets() throws Exception {
         TenableIoClient apiClient = new TenableIoClient();
