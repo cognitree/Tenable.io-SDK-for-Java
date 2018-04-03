@@ -13,10 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.net.Inet4Address;
 import java.net.InetAddress;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 
 /**
@@ -194,7 +191,7 @@ public class WorkbenchNessusFileParser {
                                 currentObject.setLastHostScanEnd( DateHelper.parseIso8601Date( tagValue ) );
                                 break;
                             case "lastauthenticatedresults":
-                                currentObject.setLastAuthenticatedResult( DateHelper.parseIso8601Date( tagValue ) );
+                                currentObject.setLastAuthenticatedResult( DateHelper.parseEpochTimestamp( Long.parseLong( tagValue ) ) );
                                 break;
                             case "local-checks-proto":
                                 currentObject.setLastAuthenticatedScanProto( tagValue );
