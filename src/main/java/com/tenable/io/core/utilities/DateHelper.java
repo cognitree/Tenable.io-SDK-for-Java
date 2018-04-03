@@ -30,4 +30,21 @@ public class DateHelper {
             throw new TenableIoException( TenableIoErrorCode.InvalidParameter, String.format( "Exception when parsing date \'%s\'.", date ), e );
         }
     }
+
+    /**
+     * Parses out the given timestamp into an actual java Date object.
+     * The given date is expected to be a epoch time
+     *
+     * @param timestamp epoch time in seconds
+     * @return
+     * @throws TenableIoException
+     */
+    public static Date parseEpochTimestamp(long timestamp) throws TenableIoException{
+        try {
+            // convert epoch time to milliseconds
+            return new Date(timestamp * 1000);
+        } catch( Exception e ) {
+            throw new TenableIoException( TenableIoErrorCode.InvalidParameter, String.format( "Exception when parsing timestamp \'%s\'.", timestamp ), e );
+        }
+    }
 }
