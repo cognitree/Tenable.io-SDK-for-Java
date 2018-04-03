@@ -140,7 +140,7 @@ public class WorkbenchHelper {
         ExportOptions options = new ExportOptions().withFormat( FileFormat.NESSUS )
                 .withReport( ReportType.VULNERABILITIES )
                 .withChapter( "vuln_by_asset" )
-                .withStartDate( startingFromDays )
+                .withDateRange( startingFromDays )
                 .withFilters( filters )
                 .withPluginId( pluginId ) // can be null
                 .withAssetId( assetId ); // can be null
